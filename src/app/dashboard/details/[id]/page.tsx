@@ -6,6 +6,7 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import { supabase } from '@/utils/supabaseClient'
 import Navbar from '@/components/Navbar'
+import { TabletSmartphone, View, Timer } from "lucide-react";
 
 interface VideoAnalytics {
   id: number
@@ -128,7 +129,7 @@ export default function DashboardDetails() {
   // Handle export
   const handleExport = () => {
     const csvContent = [
-      ['Sl No.', 'Title', 'Language', 'Total Views', 'Total Watch Time', 'Date'],
+      ['Sl No.', 'Title', 'Language', 'Total Views', 'Total Watch Time (s)', 'Date'],
       ...filteredData.map((item, index) => [
         index + 1,
         item.english_title,
@@ -150,8 +151,41 @@ export default function DashboardDetails() {
   }
 
   return (
-    <div className='min-h-screen bg-white'>
+    <div className='min-h-screen bg-[#ECE6F0]'>
       <Navbar />
+
+
+      <div className="grid grid-cols-4 gap-8 p-6 pb-0">
+          <div className="flex items-center justify-center p-6 gap-1 bg-white rounded-md flex-col">
+            <TabletSmartphone color={"purple"} size={35} />
+            <p className="text-black text-2xl font-black">{id}</p>
+            <p className="text-gray-600 text-sm">Total Devices</p>
+          </div>
+          <div className="flex items-center justify-center p-6 gap-1 bg-white rounded-md flex-col">
+            <View color={"purple"} size={35} />
+            <p className="text-black text-xl font-black">
+              {filteredData.length > 0 
+                ? new Date(Math.max(...filteredData.map(item => new Date(item.date).getTime()))).toLocaleDateString()
+                : '-'}
+            </p>
+            <p className="text-gray-600 text-sm">Last Synced</p>
+          </div>
+          <div className="flex items-center justify-center p-6 gap-1 bg-white rounded-md flex-col">
+            <View color={"purple"} size={35} />
+            <p className="text-black text-xl font-black">
+              {filteredData.reduce((sum, item) => sum + item.total_views_day, 0)}
+            </p>
+            <p className="text-gray-600 text-sm">Total Views</p>
+          </div>
+          <div className="flex items-center justify-center p-6 gap-1 bg-white rounded-md flex-col">
+            <Timer color={"purple"} size={35} />
+            <p className="text-black text-xl font-black">
+              {filteredData.reduce((sum, item) => sum + item.total_time_day, 0)}
+            </p>
+            <p className="text-gray-600 text-sm">Total Watch Time (s)</p>
+          </div>
+        </div>
+
       <div className="p-6">
        
       {/* Filters */}
@@ -235,7 +269,7 @@ export default function DashboardDetails() {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-lg shadow">
+      <div className="overflow-x-auto rounded-lg shadow max-h-[300px] overflow-y-auto">
         <table className="min-w-full bg-white border border-gray-200">
           <thead>
             <tr className="bg-gray-50">
@@ -257,7 +291,7 @@ export default function DashboardDetails() {
               <th className="border-b border-gray-200 p-3 text-left text-sm font-semibold text-gray-600">Language</th>
               <th className="border-b border-gray-200 p-3 text-left text-sm font-semibold text-gray-600">Level</th>
               <th className="border-b border-gray-200 p-3 text-left text-sm font-semibold text-gray-600">Total Views</th>
-              <th className="border-b border-gray-200 p-3 text-left text-sm font-semibold text-gray-600">Total Watch Time</th>
+              <th className="border-b border-gray-200 p-3 text-left text-sm font-semibold text-gray-600">Total Watch Time (s)</th>
               <th className="border-b border-gray-200 p-3 text-left text-sm font-semibold text-gray-600">Capture Date</th>
             </tr>
           </thead>
