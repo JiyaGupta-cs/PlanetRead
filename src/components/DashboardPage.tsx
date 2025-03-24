@@ -47,7 +47,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ devices }) => {
         <div className="w-full">
           <div className="grid grid-cols-4 gap-4">
             {filteredDevices.map((device) => (
-              <Link key={device.id} href={`/details/${device.id}`}>
+              <Link key={device.id} href={`/dashboard/details/${device.id}`}>
               <div className="bg-white rounded-md p-4">
                 <p className="text-purple-700 text-lg">{device.id}</p>
                 <p className="text-gray-500 text-sm">Device Id</p>
