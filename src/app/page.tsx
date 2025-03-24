@@ -14,9 +14,9 @@ export default function Component() {
   }, [session]);
 
   return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
+    <div className="bg-[#ECE6F0] h-screen items-center justify-center flex flex-col">
+      <p className="text-black">Not signed in</p>
+      <button className="bg-purple-700 rounded-md text-white" onClick={() => signIn()}>Sign in</button>
+    </div>
   );
 }
