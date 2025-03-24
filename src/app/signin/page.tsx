@@ -1,5 +1,4 @@
 "use client";
-import { getServerSession } from "next-auth/next";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -26,25 +25,33 @@ const SignInPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col space-y-4 w-80 mx-auto mt-10">
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        required
-        className="border p-2"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        required
-        className="border p-2"
-      />
-      <button type="submit" className="p-2 bg-blue-500 text-white rounded">Sign In</button>
-    </form>
+    <div className="bg-[#ECE6F0] h-screen items-center justify-center flex">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col space-y-4 w-80"
+      >
+        <p className="text-purple-700 font-black text-center">Login To Analytics Dashboard</p>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          required
+          className="border p-2 border-purple-700 placeholder:text-gray-500 placeholder:text-sm text-gray-800"
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          required
+          className="border p-2 border-purple-700 placeholder:text-gray-500 placeholder:text-sm text-gray-800"
+        />
+        <button type="submit" className="p-2 bg-purple-700 text-white rounded">
+          Sign In
+        </button>
+      </form>
+    </div>
   );
 };
 

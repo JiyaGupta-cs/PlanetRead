@@ -1,13 +1,10 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { createClient } from "@supabase/supabase-js";
+
 import bcrypt from "bcrypt";
 import { NextAuthOptions } from "next-auth";
 
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_ANON_KEY!
-);
+import { supabase } from "@/utils/supabaseClient";
 
 export const authOptions: NextAuthOptions = {
   providers: [
