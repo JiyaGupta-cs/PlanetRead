@@ -243,25 +243,25 @@ export default function DashboardDetails() {
       <div className="mb-4 flex gap-4">
       <button
             onClick={applyFilters}
-            className="bg-purple-700 hover:bg-blue-600 text-white px-3 py-2 rounded-md shadow-sm transition-colors duration-200"
+            className="bg-purple-700 hover:bg-blue-600 text-white px-3 py-2 rounded-md shadow-sm transition-colors duration-200 cursor-pointer"
           >
             Apply Filters
           </button>
           <button
             onClick={resetFilters}
-            className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-2 rounded-md shadow-sm transition-colors duration-200"
+            className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-2 rounded-md shadow-sm transition-colors duration-200 cursor-pointer"
           >
             Reset Filters
           </button>
         <button
           onClick={handleExport}
-          className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md shadow-sm transition-colors duration-200"
+          className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md shadow-sm transition-colors duration-200 cursor-pointer"
         >
           Export Data
         </button>
         <button
           onClick={handleBulkDelete}
-          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md shadow-sm transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md shadow-sm transition-colors duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={selectedRows.length === 0}
         >
           Delete Selected
