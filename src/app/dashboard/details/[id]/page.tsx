@@ -111,6 +111,8 @@ export default function DashboardDetails() {
   // Handle bulk delete
   const handleBulkDelete = async () => {
     if (selectedRows.length === 0) return
+
+    alert(`Are you sure you want to delete ${selectedRows.length} rows?`);
     
     const { error } = await supabase
       .from('video_analytics')
