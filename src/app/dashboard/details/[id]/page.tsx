@@ -348,7 +348,13 @@ export default function DashboardDetails() {
                   <td className="p-3 text-sm text-gray-800">
                     {item.english_title}
                   </td>
-                  <td className="p-3 text-sm text-gray-800">{item.language}</td>
+                  <td className="p-3 text-sm text-gray-800">
+                    {item.language == "pa"
+                      ? "Punjabi"
+                      : item.language == "en"
+                      ? "English"
+                      : item.language}
+                  </td>
                   <td className="p-3 text-sm text-gray-800">{item.level}</td>
                   <td className="p-3 text-sm text-gray-800">
                     {item.total_views_day}
