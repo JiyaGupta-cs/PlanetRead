@@ -288,7 +288,7 @@ export default function DashboardDetails() {
         {/* Table */}
         <div className="overflow-x-auto rounded-lg shadow max-h-[300px] overflow-y-auto">
           <table className="min-w-full bg-white border border-gray-200">
-            <thead>
+            <thead className="sticky top-0 z-10 bg-white">
               <tr className="bg-gray-50">
                 <th className="border-b border-gray-200 p-3">
                   <input
