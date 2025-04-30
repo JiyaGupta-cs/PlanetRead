@@ -16,6 +16,7 @@ interface VideoAnalytics {
   english_title: string;
   level: number;
   language: string;
+  name: string;
 }
 
 export default function DashboardDetails() {
@@ -306,6 +307,9 @@ export default function DashboardDetails() {
                   Sl No.
                 </th>
                 <th className="border-b border-gray-200 p-3 text-left text-sm font-semibold text-gray-600">
+                  Username
+                </th>
+                <th className="border-b border-gray-200 p-3 text-left text-sm font-semibold text-gray-600">
                   Title
                 </th>
                 <th className="border-b border-gray-200 p-3 text-left text-sm font-semibold text-gray-600">
@@ -345,6 +349,9 @@ export default function DashboardDetails() {
                     />
                   </td>
                   <td className="p-3 text-sm text-gray-500">{index + 1}</td>
+                  <td className="p-3 text-sm text-gray-800">
+                    {item.name || "-"}
+                  </td>
                   <td className="p-3 text-sm text-gray-800">
                     {item.english_title}
                   </td>
