@@ -170,10 +170,10 @@ export default function DashboardDetails() {
     <div className="min-h-screen bg-[#ECE6F0]">
       <Navbar />
 
-      <div className="grid grid-cols-4 gap-8 p-6 pb-0">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 p-6 pb-0">
         <div className="flex items-center justify-center p-6 gap-1 bg-white rounded-md flex-col">
           <TabletSmartphone color={"purple"} size={35} />
-          <p className="text-black text-2xl font-black">{id}</p>
+          <p className="text-black text-lg lg:text-xl font-black break-all text-center">{id}</p>
           <p className="text-gray-600 text-sm">Total Devices</p>
         </div>
         <div className="flex items-center justify-center p-6 gap-1 bg-white rounded-md flex-col">
