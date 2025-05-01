@@ -144,8 +144,8 @@ export default function DashboardDetails() {
       ],
       ...filteredData.map((item, index) => [
         index + 1,
-        item.english_title,
-        item.language,
+        item.english_title.replaceAll(",", " "),
+        item.language == "pa" ? "Punjabi" : item.language == "en" ? "English" : item.language,
         item.total_views_day,
         item.total_time_day,
         item.date,
