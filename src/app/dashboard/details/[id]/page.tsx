@@ -145,7 +145,11 @@ export default function DashboardDetails() {
       ...filteredData.map((item, index) => [
         index + 1,
         item.english_title.replaceAll(",", " "),
-        item.language == "pa" ? "Punjabi" : item.language == "en" ? "English" : item.language,
+        item.language == "pa"
+          ? "Punjabi"
+          : item.language == "en"
+          ? "English"
+          : item.language,
         item.total_views_day,
         item.total_time_day,
         item.date,
@@ -239,21 +243,25 @@ export default function DashboardDetails() {
             <option value="pa">Punjabi</option>
           </select>
 
-          <DatePicker
-            selected={filters.fromDate}
-            onChange={(date) => setFilters({ ...filters, fromDate: date })}
-            placeholderText="From Date"
-            dateFormat="yyyy-MM-dd"
-            className="placeholder:text-gray-800 text-gray-800 border border-gray-300 p-2 rounded-md shadow-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-300 outline-none w-full"
-          />
-
-          <DatePicker
-            selected={filters.toDate}
-            onChange={(date) => setFilters({ ...filters, toDate: date })}
-            placeholderText="To Date"
-            dateFormat="yyyy-MM-dd"
-            className="placeholder:text-gray-800 text-gray-800 border border-gray-300 p-2 rounded-md shadow-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-300 outline-none w-full"
-          />
+          <div className="relative z-30">
+            <DatePicker
+              selected={filters.fromDate}
+              onChange={(date) => setFilters({ ...filters, fromDate: date })}
+              placeholderText="From Date"
+              dateFormat="yyyy-MM-dd"
+              className="placeholder:text-gray-800 text-gray-800 border border-gray-300 p-2 rounded-md shadow-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-300 outline-none w-full"
+              popperClassName="z-30"
+            />
+          </div>
+          <div className="relative z-30">
+            <DatePicker
+              selected={filters.toDate}
+              onChange={(date) => setFilters({ ...filters, toDate: date })}
+              placeholderText="To Date"
+              dateFormat="yyyy-MM-dd"
+              className="placeholder:text-gray-800 text-gray-800 border border-gray-300 p-2 rounded-md shadow-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-300 outline-none w-full"
+            />
+          </div>
         </div>
 
         {/* Actions */}
