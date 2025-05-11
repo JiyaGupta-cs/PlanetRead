@@ -241,6 +241,7 @@ export default function DashboardDetails() {
             <option value="">Select Language</option>
             <option value="en">English</option>
             <option value="pa">Punjabi</option>
+            <option value="hi">Hindi</option>
           </select>
 
           <div className="relative z-30">
@@ -368,7 +369,7 @@ export default function DashboardDetails() {
                       ? "Punjabi"
                       : item.language == "en"
                       ? "English"
-                      : item.language}
+                      : item.language == "hi" ? "Hindi" : item.language}
                   </td>
                   <td className="p-3 text-sm text-gray-800">{item.level}</td>
                   <td className="p-3 text-sm text-gray-800">
